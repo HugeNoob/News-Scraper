@@ -3,7 +3,7 @@ from pprint import pprint
 from bs4 import BeautifulSoup
 
 # API documentation: https://open-platform.theguardian.com/documentation/
-APIKEY = '2affc1d5-6c16-4dfb-89bc-7584ad115ae7'
+APIKEY = '(apikey removed for github)'
 SECTIONS = ['about', 
             'animals-farmed',
             'artanddesign',
