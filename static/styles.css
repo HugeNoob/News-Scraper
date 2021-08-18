@@ -3,3 +3,7 @@
     height: 15vw;
     object-fit: cover;
 }
+
+.img-fluid {
+    max-width: 60%;
+} 
