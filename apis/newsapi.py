@@ -1,8 +1,8 @@
 import requests
-from pprint import pp, pprint
+from pprint import pprint
 
 # API documentation: https://newsapi.org/docs/get-started#top-headlines
-APIKEY='6845da88691f4be0b29abf74c1945fa1'
+APIKEY='(apikey removed for github)'
 SECTIONS = ['business', 
             'entertainment', 
             'general', 

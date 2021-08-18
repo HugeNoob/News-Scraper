@@ -4,7 +4,7 @@ from pprint import pprint
 from bs4 import BeautifulSoup
 
 # API documentation: https://developer.nytimes.com/docs/top-stories-product/1/overview
-APIKEY = os.getenv('NYTIMES_APIKEY', 'RSM3jHZmBaf88E6qYIqkqMT9xkMXZglk')
+APIKEY = os.getenv('NYTIMES_APIKEY', '(apikey removed for github)')
 SECTIONS = ['arts',
             'automobiles',
             'books',

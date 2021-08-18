@@ -2,7 +2,7 @@ import requests
 from pprint import pprint
 
 # API documentation: https://free-docs.newscatcherapi.com/?python#introduction
-APIKEY = '5fdd297fefmsh88f9044b379b43dp164c0ajsn59d56efcf332'
+APIKEY = '(apikey removed for github)'
 
 # Article Search
 def search_articles(query, num_articles=3):
