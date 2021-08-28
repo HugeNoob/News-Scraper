@@ -56,16 +56,20 @@ def top_articles_in_section(section, num_articles=3):
         for article in data:
             processed_article = {'title': article['title'],
                         'pub_date': article['created_date'].split('T')[0],
-                        'media': article['multimedia'][0]['url'],
                         'abstract': article['abstract'],
                         'url': article['url']
             }
+            if article['multimedia'] != None:
+                processed_article['media'] = article['multimedia'][0]['url']
+            else:
+                processed_article['media'] = 'None'
             articles.append(processed_article)
 
             if len(articles) >= num_articles:
                 return articles
 
     return process_results(query_data)
+
 
 def print_top_articles(section, num_articles=3):
     """
