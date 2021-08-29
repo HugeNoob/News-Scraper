@@ -146,6 +146,9 @@ def search_articles(query, num_articles=3, sort="relevance"):
             
         return articles
 
+    if articles == None:
+        return None
+    
     return scrape_image(articles)
 
 def print_searched_articles(query, num_articles=3, sort="relevance"):

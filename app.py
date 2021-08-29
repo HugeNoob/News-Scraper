@@ -82,13 +82,12 @@ def search():
     query = str(request.form.get('query'))
     nyt_article_list = nytapi.search_articles(query, 4)
     guardian_article_list = guardianapi.search_articles(query, 6)
-    newsapi_article_list = newsapi.search_articles(query, 8)
+    newsapi_article_list = newsapi.search_articles(query, 6)
     all_articles = {'nyt': nyt_article_list,
                     'guardian': guardian_article_list,
-                    'newsapi1': newsapi_article_list[:4],
-                    'newsapi2': newsapi_article_list[4:]
+                    'newsapi1': newsapi_article_list,
     }
-    return render_template('search.html', context = all_articles)
+    return render_template('search.html', context = all_articles, query_str = query)
 
     
 

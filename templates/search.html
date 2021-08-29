@@ -54,7 +54,7 @@
 
       <!-- Search bar-->
       <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
-        <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search for news..." aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" name="query" placeholder="Results for: {{ query_str }}" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
       </form>
     </div>
@@ -70,17 +70,23 @@
     </div>
 
     <div class="card-group">
-      {% for article in context['nyt'] %}
-      <div class="card">
-        <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
-        <div class="card-body">
-          <h5 class="card-title">{{ article['title'] }}</h5>
-          <p class="card-text">{{ article['abstract'] }}</p>
-          <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
-          <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+      {% if context['nyt'] != None %}
+
+        {% for article in context['nyt'] %}
+        <div class="card">
+          <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <p class="card-text">{{ article['abstract'] }}</p>
+            <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
+            <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+          </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+
+      {% else %}
+        No results containing all your search terms were found.
+      {% endif %}
     </div>
 
     <!-- Guardian-->
@@ -91,17 +97,23 @@
     </div>
 
     <div class="card-group">
-      {% for article in context['guardian'] %}
-      <div class="card">
-        <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
-        <div class="card-body">
-          <h5 class="card-title">{{ article['title'] }}</h5>
-          <p class="card-text">{{ article['abstract'] }}</p>
-          <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
-          <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+      {% if context['guardian'] != None %}
+
+        {% for article in context['guardian'] %}
+        <div class="card">
+          <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <p class="card-text">{{ article['abstract'] }}</p>
+            <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
+            <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+          </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+
+      {% else %}
+        No results containing all your search terms were found.
+      {% endif %}
     </div>
     
     <!-- NewsAPI-->
@@ -113,32 +125,23 @@
 
     <!-- Row 1-->
     <div class="card-group">
-      {% for article in context['newsapi1'] %}
-      <div class="card">
-        <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
-        <div class="card-body">
-          <h5 class="card-title">{{ article['title'] }}</h5>
-          <p class="card-text">{{ article['abstract'] }}</p>
-          <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
-          <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+      {% if context['newsapi1'] != None %}
 
-    <!-- Row 2-->
-    <div class="card-group">
-      {% for article in context['newsapi2'] %}
-      <div class="card">
-        <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
-        <div class="card-body">
-          <h5 class="card-title">{{ article['title'] }}</h5>
-          <p class="card-text">{{ article['abstract'] }}</p>
-          <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
-          <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+        {% for article in context['newsapi1'] %}
+        <div class="card">
+          <img class="card-img-top" src="{{ article['media'] }}" alt="No thumbnail available... Sorry!">
+          <div class="card-body">
+            <h5 class="card-title">{{ article['title'] }}</h5>
+            <p class="card-text">{{ article['abstract'] }}</p>
+            <p class="card-text"><small class="text-muted">Published: {{article['pub_date']}} </small></p>
+            <a href="{{article['url']}}" class="btn btn-primary">Visit article</a>
+          </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
+        
+      {% else %}
+        No results containing all your search terms were found.
+      {% endif %}
     </div>
 
   </body>
